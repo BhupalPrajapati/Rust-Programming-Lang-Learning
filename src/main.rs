@@ -1,3 +1,5 @@
+use std::{collections::HashMap, os::windows::raw::HANDLE};
+
 
 
 
@@ -645,7 +647,7 @@ fn check_fruit(input_fruit:String)->Option<String>{
 
 // }
 
-
+/* 
 
                                         
 let  student_db = vec![
@@ -666,8 +668,8 @@ let  student_db = vec![
 
 // println!("{:?}",student_db );
 
-let student_name = String::from("Bhupal");
-let result_student = get_grade(&student_name, &student_db);
+let student_name = String::from("Bhu");
+// let result_student = get_grade(&student_name, &student_db);
 
 // This is not good/appricate method to define the math 
 // instead of using match pattern we are using the if with the match pattern
@@ -679,8 +681,26 @@ let result_student = get_grade(&student_name, &student_db);
 //     Some(grade)=>println!("grade is {grade}"),
 //     None=>{},
 // }
-if let Some(grade)=result_student{
-     println!("garde :{grade}");
+// if let Some(grade)=result_student{
+//      println!("garde :{grade}");
+// }
+
+// check stustus of student
+let student_status = check_grade_grade_student(&student_name, &student_db);
+
+// This enum work with the math expresssion for the matching vslue in the expression
+
+match student_status {
+     Ok(option_grade)=>{
+          //let student_grade = get_grade(&student_name, &student_db);
+          // here we use our Some Varianrs for printing grade
+
+          if let Some(garde)=option_grade{
+               println!("Garde is :{garde}" );
+          }
+     }
+     Err(error_msg) => println!("{error_msg}"),
+    
 }
 
 
@@ -690,15 +710,82 @@ struct Student{
      grade:Option<u32>,
 }
 
-fn get_grade(student_name:&String,student_db:&Vec<Student>)->Option<u32>{
-     for student in student_db  {
-         if student.name == *student_name {
-             return student.grade;
-         }
-             
-         
-     }
-     None
+// fn get_grade(student_name:&String,student_db:&Vec<Student>)->Option<u32>{
+//      for student in student_db  {
+//          if student.name == *student_name {
+//              return student.grade;
+//          } 
+//      }
+//      None
+// }
 
+fn check_grade_grade_student(student_name:&String, student_db:&Vec<Student>)->Result<Option<u32>,String>{
+           for student in student_db  {
+           if student.name == *student_name {
+              return Ok(student.grade);
+          }
+     }
+     Err(String::from("Student is Not found"))
+
+     */
+
+
+
+
+
+
+                                                       // Implementing The HashMap 
+/* 
+    let mut person:HashMap<&str,i32> = HashMap::new();
+      person.insert("Bhupal",12);
+      person.insert("Raj",2);
+      println!("value is :{}",person.get("Bhupal").unwrap());
+      println!("{}",person.contains_key("Bhupal"));
+      
+      if person.contains_key("Raja"){
+          println!("The value is Exits")
+      }else {
+          println!("Value is Not Exist")
+      }
+
+      match person.get("raj"){
+          Some(value) => println!("value Exist:{}", value),
+          None => println!("The value is Not exits"),
+      }
+
+      // we are going to use of references of value , the references wii be ended when the loop is end
+
+      for (name,age) in &person {
+          println!("The person {} has age :{}",name,age);
+      }
+
+      */
+
+
+                        // Another Example of hashmap
+/* 
+   let mut person :HashMap<&str,&str> = HashMap::new();
+//    person.insert("Bhupal", "Prajapati");
+//    person.insert("Bhupal", "Kohar") ;
+//    println!("{:?}",person); 
+  
+     // Here we are using the entry function who check the value is already exist or not
+
+     person.entry("Bhupal").or_insert("Prajapati");
+     person.entry("Bhupal").or_insert("Kohar");
+     println!("{:?}",person)
+
+     */
+
+    let some_vec = vec![1,2,3,4,5,6,7,8];
+    let mut freq_vec:HashMap<i32,u32> = HashMap::new();
+
+    for i in &some_vec  {
+        let fre = freq_vec.entry(*i).or_insert(0);
+        *fre+=1;
+    }
+    println!("{:?}",freq_vec );
 
 }
+
+

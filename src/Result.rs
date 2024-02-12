@@ -78,7 +78,7 @@ fn check_grade_grade_student(student_name:&String, student_db:&Vec<Student>)->Re
 
     */
 
-let x = 10;
+    let x = 10; 
 
                                         // Normal practicse of question by using the Resut enum 
 
