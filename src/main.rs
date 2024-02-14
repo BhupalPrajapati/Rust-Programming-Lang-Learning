@@ -1,11 +1,26 @@
-use std::{collections::HashMap, os::windows::raw::HANDLE};
+// mod student_management_system;
+// mod Result;
+// 
+// use std::{collections::{btree_set::Intersection, HashMap}, os::windows::raw::HANDLE};
 
+// here we can used the array tool for intersection
+// use array_tool::vec::*;
+ // use the Modules of customer, order, and product
+/// this is the moule structure
+/// 
 
+ mod customer;
+ mod product;
+ mod order;
+// use practicse::{Customer,Product,Order};
 
-
-
-
-
+mod generic;
+mod traits;
+mod marker_derived_trait;
+mod closures;
+mod iterator;
+mod into_Iterator;
+  
 
 
 fn main() {
@@ -777,15 +792,80 @@ fn check_grade_grade_student(student_name:&String, student_db:&Vec<Student>)->Re
 
      */
 
-    let some_vec = vec![1,2,3,4,5,6,7,8];
-    let mut freq_vec:HashMap<i32,u32> = HashMap::new();
+//     let some_vec = vec![1,2,3,4,5,6,7,8];
+//     let mut freq_vec:HashMap<i32,u32> = HashMap::new();
 
-    for i in &some_vec  {
-        let fre = freq_vec.entry(*i).or_insert(0);
-        *fre+=1;
-    }
-    println!("{:?}",freq_vec );
+//     for i in &some_vec  {
+//         let fre = freq_vec.entry(*i).or_insert(0);
+//         *fre+=1;
+//     }
+//     println!("{:?}",freq_vec );
+// //     let Intersection= Intersectio??
+
+
+
+
+
+
+                                             // Choose Between Associated Type and Generic type
+/* 
+      let p1 = Point{x:1,y:2};
+      let p2 = Point{x:2,y:1};   
+      let p3:Point = p1.add(p2);
+      assert_eq!(p3.x,3);
+      assert_eq!(p3.y,3);     
+
+      let p3= Point{x:1,y:1};
+      let p4 = p3.add(2);
+      assert_eq!(p4.x,3);
+      assert_eq!(p4.y,3);
 
 }
 
+trait Addition<Rhs,Ouput> {
+//     type Rhs;
+//     type Ouput;
+    fn add(self, rhs:Rhs)->Ouput;
+}
 
+ struct Point{
+     x:i32,
+     y:i32,
+ }
+impl Addition<Point,Point> for Point{
+     // type Rhs  = Point;
+     // type Ouput = Point;
+     fn add(self, rhs:Point)->Point {
+         Point{
+          x:self.x+rhs.x,
+          y:self.y+rhs.y,
+         }
+     }
+}
+
+impl Addition<i32,Point> for Point {
+//     type Rhs = i32;
+//     type Ouput = Point;
+    fn add(self, rhs:i32)->Point{
+        Point{
+          x:self.x+rhs,
+          y:self.x+rhs,
+        }
+    }
+}
+
+struct Line{
+     start:Point,
+     end:Point,
+}
+impl Addition<Point,Line> for  Point{
+     fn add(self, rhs:Point)->Line {
+         Line{
+          start:self,
+          end:rhs,
+         }
+     }
+    
+}
+*/
+}
