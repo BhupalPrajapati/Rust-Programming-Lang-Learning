@@ -1,3 +1,4 @@
+workspace = { members = ["src/macros", "src/web_scrapping_project"] }
 [package]
 name = "practicse"
 version = "0.1.0"
@@ -7,3 +8,5 @@ edition = "2021"
 
 [dependencies]
 array_tool = "1.0.3"
+rand = "0.8.5"
+
