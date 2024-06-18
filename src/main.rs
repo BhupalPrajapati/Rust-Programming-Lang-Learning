@@ -30,17 +30,20 @@ mod linkedList;
 
 fn main() {
     // println!("Hello, world!");
-    // let x: [i32;5]=[1,2,3,4,5];
-    // println!("{:?}",x);
+//  let x: [i128;5]=[1,2,3,4,5];
+
+//  let x = vec![1,2,3,4,5];
+
+//     println!("{:?}",x);
     // panic!("{:?}",x );
 
     // let x:[i64;3]=[1,2,3];
     // print!("{:?}",x);
     // str and string in rust
 
-    // let mut x: &str = "nshd";
+    let mut x: &str = "nshd";
 
-    // println!("{}",x);
+    println!("{}",x);
 
     // let mut y: String = String::from("the value i");
     // y.push('s');
