@@ -1,7 +1,8 @@
 mod Employee_with_No_Meeting;
 mod Highest_stock_price;
 mod Product_popularity;
-
+mod longest_nonstop_working_hrs;
+mod item_sugg_using_hashset;
 
 use std::collections::HashMap;
 
