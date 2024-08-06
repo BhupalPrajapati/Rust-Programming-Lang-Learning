@@ -1,9 +1,8 @@
+// In this ection we are implemet the single linked list
+/*
 
-                              // In this ection we are implemet the single linked list
-
-                              /* 
-#[derive(Debug)] 
-// here we an define the head of linked list where the linked list is start 
+#[derive(Debug)]
+// here we an define the head of linked list where the linked list is start
 // this struct is called wrapper struct
 // we are also required to emptu head bcz some condtiton are empty show that why need None value that shows our head is empyt
 // for that reason we need to define the Option in Linkedlist struct
@@ -12,7 +11,7 @@ struct LinlList{
     head:Pointer,
 }
 
-#[derive(Debug)]    
+#[derive(Debug)]
 struct  Node{
     element:i32,
     // next:Option<Box<Node>>,
@@ -24,9 +23,9 @@ struct  Node{
 type Pointer = Option<Box<Node>>;
 
 
-           // here we gone to add some functionality of linked list like adding, removing and displaying 
+           // here we gone to add some functionality of linked list like adding, removing and displaying
 impl LinlList  {
-    fn new()->LinlList{      // here fn new() means pattrern commanly used for the instance of struct and enum this is called associated function 
+    fn new()->LinlList{      // here fn new() means pattrern commanly used for the instance of struct and enum this is called associated function
         LinlList{head:None}
     }
     // here we define the adding method to add the element in the linkedlist by input is &mut of self and element we want to add
@@ -41,7 +40,7 @@ impl LinlList  {
         //             element:element,
         //             next:None,
 
-        //         }));   
+        //         }));
         //         self.head = new_node;
         //     }
         //     Some(Previous_head)=>{
@@ -54,10 +53,10 @@ impl LinlList  {
         // }
                // here we are doing the some special method for the solved the above proble
                // take() method wchin is a option<> this is used when the value is missing or unknown
-               // syntax of take() metod 
-    //    fn take<T>(dest:&mut T)->T 
+               // syntax of take() metod
+    //    fn take<T>(dest:&mut T)->T
 
-    let previous_head = self.head.take();       
+    let previous_head = self.head.take();
     let new_head = Some(Box::new(Node{
         element:element,
         next:previous_head,
@@ -76,22 +75,24 @@ impl LinlList  {
         }
         None=>None
     }
-   }   
+   }
 
    fn print(&self){
     let mut list_traversal = &self.head;
     while !list_traversal.is_none() {
         println!("{:?}",list_traversal.as_ref().unwrap().element);
         list_traversal = &list_traversal.as_ref().unwrap().next;
-        
-    }
-   }  
-}
 
+    }
+   }
+}
+*/
+
+/*
 fn main(){
 
     // lets comment out the below code bcz above we are used the type pointer that used as a alias for the exsiting element
-    /* 
+
 let list = Node{
     element:1,
     next:None,
@@ -133,7 +134,7 @@ let list = LinlList{head:None};
 */
 
 // here we arecreating the new linked list with help of the head and type pointer
-/* 
+/*
 let list = LinlList{
    head:Some(Box::new(Node{
     element:100,
@@ -147,9 +148,9 @@ let list = LinlList{
 // here we are trying to print the head of the linkedlsit
 
 println!("{:?}",&list.head.unwrap().next.unwrap().element);
-*/
 
-          // here we add element in the linked list with the help of the creating take method 
+
+          // here we add element in the linked list with the help of the creating take method
     let mut list = LinlList::new();
     list.add(100);
     list.add(210);
@@ -160,12 +161,7 @@ println!("{:?}",&list.head.unwrap().next.unwrap().element);
 }
  */
 
-    
-
-
-
-                   
-                   /*                  // Here below we implement the doubly linked list
+/*                  // Here below we implement the doubly linked list
  use std::{cell::RefCell,rc::Rc};
 
 #[allow(dead_code)]
@@ -201,7 +197,7 @@ impl Doubly_Linklist {
             prev:None,
         }));
 
-        // take will return the value of head, replacing it with default value this case is none 
+        // take will return the value of head, replacing it with default value this case is none
         // the none value for the head will be replaced inside the match arms
         match self.head.take(){
         // we need to do two things 1)we will set the previous of the old head to new head and following thisnext of head equal to old head

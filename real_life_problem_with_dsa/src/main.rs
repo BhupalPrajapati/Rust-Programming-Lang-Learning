@@ -3,6 +3,11 @@ mod Highest_stock_price;
 mod Product_popularity;
 mod longest_nonstop_working_hrs;
 mod item_sugg_using_hashset;
+pub mod item_in_range_Using_Binary_tree;
+pub mod my_sql;
+pub mod findling_top_products;
+pub mod efficient_storage_nd_retrieve_word;
+pub mod Most_recently_used_product;
 
 use std::collections::HashMap;
 
