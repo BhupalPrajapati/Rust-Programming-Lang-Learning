@@ -9,5 +9,6 @@ fn vowel(word:&String)->u8{
 }          
 
 fn main() {
-    
+    let check = "Bhupal".to_string();
+    println!("Number of vowels in the word: {}", vowel(&check));
 }
