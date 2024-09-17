@@ -15,7 +15,7 @@ struct Node{
     prod_id : i32,
     prev:Link,
     next: Link,
-}
+}     
 impl Node {
     fn new(elem:i32)->Rc<RefCell<Self>>{
         Rc::new(RefCell::new(Node{

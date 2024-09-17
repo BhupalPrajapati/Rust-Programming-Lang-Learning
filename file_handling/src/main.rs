@@ -151,11 +151,24 @@ fn main() {
         // //    let re = Regex::new(r"\b\w{2,10}\b").unwrap();
         // let text = "I think you we are happy because i have gift for you";
 
-           let re = Regex::new(r"\d{1,3}\.\d{1,3}").unwrap();
-           let text = "192.168.0.1 192.168.0.255 127.0.0.1 10.0.0.1";
-           for c in re.captures_iter(text)  {
-               println!("Match :{}", &c[0]);
-           }
+        //    let re = Regex::new(r"\d{1,3}\.\d{1,3}").unwrap();
+        //    let text = "192.168.0.1 192.168.0.255 127.0.0.1 10.0.0.1";
+        //    for c in re.captures_iter(text)  {
+        //        println!("Match :{}", &c[0]);
+        //    }
+
+
+
+
+
+        // this below regex is match the date of the regex
+
+        let re = Regex::new(r"(\d{4})-(\d{2})-(\d{2})").unwrap();  // yyyy-mm-dd
+        let mut text = "201-04-14";
+        for c in re.captures_iter(&mut text)  {
+            println!("Match : {}-{}-{}", &c[1], &c[2], &c[3]);
+        }
+
 
 
 }
