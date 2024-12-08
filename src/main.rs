@@ -6,35 +6,32 @@
 // here we can used the array tool for intersection
 // use array_tool::vec::*;
 // use the Modules of customer, order, and product
+mod Box_pointer;
 /// this is the moule structure
-
 // mod customer;
 // mod order;
 // mod product;
 // use practicse::{Customer,Product,Order};
-
 mod closures;
 mod combinators;
 mod generic;
 mod into_Iterator;
 mod iterating_over_collection;
-mod iterator;
-mod marker_derived_trait;
-mod traits;
 mod iterating_through_option;
+mod iterator;
 mod lifetime;
-mod Box_pointer;
-mod refcell_pointer;
 mod linkedList;
-
+mod marker_derived_trait;
+mod refcell_pointer;
+mod traits;
 
 fn main() {
     // println!("Hello, world!");
-//  let x: [i128;5]=[1,2,3,4,5];
+    //  let x: [i128;5]=[1,2,3,4,5];
 
-//  let x = vec![1,2,3,4,5];
+    //  let x = vec![1,2,3,4,5];
 
-//     println!("{:?}",x);
+    //     println!("{:?}",x);
     // panic!("{:?}",x );
 
     // let x:[i64;3]=[1,2,3];
@@ -43,7 +40,7 @@ fn main() {
 
     let mut x: &str = "nshd";
 
-    println!("{}",x);
+    println!("{}", x);
 
     // let mut y: String = String::from("the value i");
     // y.push('s');
@@ -844,38 +841,33 @@ fn main() {
     }
     */
 
+    // Here we implement the polymorphsim in rust
 
-          // Here we implement the polymorphsim in rust 
-
-    let car=Sedon;
-    car.drive(); 
-    road_trip(&car);   
-//     let electric = SUV;
-//     electric.drive();  
-//     road_trip_suv(&electric);
-
-
+    let car = Sedon;
+    car.drive();
+    road_trip(&car);
+    //     let electric = SUV;
+    //     electric.drive();
+    //     road_trip_suv(&electric);
 }
 struct Sedon;
-impl Landcable for  Sedon{
-     // fn drive(&self){
-     //      println!("sedon is driving")
-     // }
+impl Landcable for Sedon {
+    // fn drive(&self){
+    //      println!("sedon is driving")
+    // }
 }
 struct SUV;
 impl Landcable for SUV {
-//     fn drive(&self){
-//      println!("Suv is driving");
-//     }
+    //     fn drive(&self){
+    //      println!("Suv is driving");
+    //     }
 }
-fn road_trip(vehicle:&impl Landcable){
+fn road_trip(vehicle: &impl Landcable) {
     vehicle.drive();
 }
 
-
-
 trait Landcable {
-    fn drive(&self){
-     println!("Defaut implementation")
+    fn drive(&self) {
+        println!("Defaut implementation")
     }
 }

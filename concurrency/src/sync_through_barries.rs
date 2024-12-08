@@ -1,4 +1,4 @@
-use std::sync::{Mutex, Arc, Barrier};
+use std::sync::{Arc, Barrier, Mutex};
 use std::thread;
 
 fn main() {
@@ -24,14 +24,20 @@ fn main() {
         let handle = thread::spawn(move || {
             // we are trying to gain access to the task1 and put value in the vector
             // task1
-            tasks.lock().unwrap().push(format!("{0} Hello From Task 1", i));
+            tasks
+                .lock()
+                .unwrap()
+                .push(format!("{0} Hello From Task 1", i));
 
             // to create the barrier, we need to pass the wait function on it.
             cloned_barrier.wait();
 
             // when the task is completely completed, then only work for the task2
             // task2
-            tasks.lock().unwrap().push(format!("{0} Hello From Task 2", i));
+            tasks
+                .lock()
+                .unwrap()
+                .push(format!("{0} Hello From Task 2", i));
         });
         thread_vec.push(handle);
     }

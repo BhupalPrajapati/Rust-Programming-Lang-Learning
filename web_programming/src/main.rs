@@ -3,8 +3,9 @@ use std::{
     io::{BufRead, BufReader, Lines, Write},
     net::{TcpListener, TcpStream},
     os::windows::thread,
-    sync::{Arc, Mutex}, time::Duration,
+    sync::{Arc, Mutex},
     thread::sleep,
+    time::Duration,
 };
 
 fn main() {

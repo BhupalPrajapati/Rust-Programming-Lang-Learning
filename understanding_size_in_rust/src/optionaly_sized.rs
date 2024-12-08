@@ -1,6 +1,6 @@
 struct Usensizedstruct<'a> {
     sized_struct: i32,
-    unsized_struct: &'a [i32],  // Using a reference to a slice
+    unsized_struct: &'a [i32], // Using a reference to a slice
 }
 
 pub fn main() {
