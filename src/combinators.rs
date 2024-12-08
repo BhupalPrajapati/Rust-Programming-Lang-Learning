@@ -1,6 +1,6 @@
-fn main(){
+fn main() {
     // find the frit start with a and b also all word is convertred in uppercase
-    let words = vec!["apple","banana", "orange","mango"];
+    let words = vec!["apple", "banana", "orange", "mango"];
     // creatinf the empty vector string to storing the final result
 
     // let mut result = vec![];
@@ -16,14 +16,13 @@ fn main(){
     // }
     // println!("{:?}",result );
 
+    // The above things are done with help of the combinator which is works same as above
 
-        // The above things are done with help of the combinator which is works same as above
+    let result = words
+        .into_iter()
+        .filter(|&word| word.starts_with("a") || word.starts_with("b"))
+        .map(|word| word.to_uppercase())
+        .collect::<Vec<String>>();
 
-    let result  = words
-     .into_iter()
-     .filter(|&word|word.starts_with("a") || word.starts_with("b"))
-      .map(|word|word.to_uppercase())
-      .collect::<Vec<String>>();
-
-    println!("{:?}",result );
+    println!("{:?}", result);
 }

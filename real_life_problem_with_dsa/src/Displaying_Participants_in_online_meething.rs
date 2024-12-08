@@ -5,8 +5,6 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-
-
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 struct Node {
     value: String,
@@ -137,7 +135,7 @@ fn main() {
         "Emily",
         "zoneman",
         "youtube",
-        "youtube"
+        "youtube",
     ];
     for name in names {
         bst.insert(name.to_string());

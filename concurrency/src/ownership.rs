@@ -1,11 +1,11 @@
 use std::thread;
-fn main(){
+fn main() {
     let x = "some value".to_string();
     println!("{}", x);
-    thread::spawn( ||{
+    thread::spawn(|| {
         let y = x;
         println!("{y}");
- });
+    });
 }
 
 // fn main(){

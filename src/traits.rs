@@ -35,7 +35,6 @@
 
 // }
 // */
-
 // // Here we are define the Super trait
 // trait Draw {
 //     fn draw_object(&self);
