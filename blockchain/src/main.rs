@@ -3,10 +3,10 @@
 use chrono::{Local, Utc};
 use sha256::digest;
 
-#[derive(Debug, Clone)]struct Blockchain {
+#[derive(Debug, Clone)]
+struct Blockchain {
     block: Vec<Block>,
 }
-
 
 #[derive(Debug, Clone)]
 struct Block {
@@ -26,7 +26,7 @@ impl Blockchain {
         Self { block: vec![] }
     }
 
-    // now create the genesis block -> first block in the blokchain 
+    // now create the genesis block -> first block in the blokchain
     // we have hard coded it. from the reference of this block we can generate the other blocks
     fn startin_block(&mut self) {
         // inside this block we have a block is called genesis block, which have information for creating the first block in the blockhain
@@ -117,64 +117,57 @@ impl Blockchain {
 
     // Now we are going to check the block is valid or not.  in the code we are comparig the current and previous block . if the current and previous block is match then we are return the ture, othewise false
 
-fn is_chain_valid(&self,chain:&Vec<Block> )-> bool {
-    match chain.len() {
-        0=>println!("chain is empty"),
-        1=>println!("chain only contains a single block"),
-        _=>{
-            for i in 1..chain.len(){
-                // get the previous block and current block then compare it
-                let previous = chain.get(i-1).unwrap();
-                let current = chain.get(i).unwrap();
+    fn is_chain_valid(&self, chain: &Vec<Block>) -> bool {
+        match chain.len() {
+            0 => println!("chain is empty"),
+            1 => println!("chain only contains a single block"),
+            _ => {
+                for i in 1..chain.len() {
+                    // get the previous block and current block then compare it
+                    let previous = chain.get(i - 1).unwrap();
+                    let current = chain.get(i).unwrap();
 
-                if !self.is_block_valid(current, previous){
-                    return false;
+                    if !self.is_block_valid(current, previous) {
+                        return false;
+                    }
                 }
             }
         }
-        
+        println!("The chain is found to be correct and valid");
+        true
     }
-    println!("The chain is found to be correct and valid");
-    true
 
-
-}
-
-// In the below function we are going the check copy of the chain. for the example we are updating the chain of blocks according to the previous block. some times we found the chain is greater length than our chain in that case we keep our block
-// this function is only used when the blocchain is distributed in nature
-// currently we are considering the chain which is residing in the local/ single machine
-fn chain_selector(&self, local:&Vec<Block>, remote:&Vec<Block>)->Option<Vec<Block>>{
-    let is_valid_local = self.is_chain_valid(&local);
-    let is_valid_remote = self.is_chain_valid(&remote);
-    match (is_valid_local, is_valid_remote){
-        (true, true) => {
-           if local.len()>=remote.len(){
-            println!("The local copy is vaild");
-            Some(local.clone())
-           }else {
-               println!("The remote copy is is vaild");
-               Some(remote.clone())
-           }
-        },
-        (true, false) =>{
-            println!("The local copy is valid, returning the local");
-            Some(local.clone())
-        },
-        (false, true) => {
-            println!("The local copy is invalid, returning the remote");
-            Some(remote.clone())
-        },
-        (false, false) =>{
-            println!("Both the local and remote copy are invalid, returning nothing");
-            None
-        },
+    // In the below function we are going the check copy of the chain. for the example we are updating the chain of blocks according to the previous block. some times we found the chain is greater length than our chain in that case we keep our block
+    // this function is only used when the blocchain is distributed in nature
+    // currently we are considering the chain which is residing in the local/ single machine
+    fn chain_selector(&self, local: &Vec<Block>, remote: &Vec<Block>) -> Option<Vec<Block>> {
+        let is_valid_local = self.is_chain_valid(&local);
+        let is_valid_remote = self.is_chain_valid(&remote);
+        match (is_valid_local, is_valid_remote) {
+            (true, true) => {
+                if local.len() >= remote.len() {
+                    println!("The local copy is vaild");
+                    Some(local.clone())
+                } else {
+                    println!("The remote copy is is vaild");
+                    Some(remote.clone())
+                }
+            }
+            (true, false) => {
+                println!("The local copy is valid, returning the local");
+                Some(local.clone())
+            }
+            (false, true) => {
+                println!("The local copy is invalid, returning the remote");
+                Some(remote.clone())
+            }
+            (false, false) => {
+                println!("Both the local and remote copy are invalid, returning nothing");
+                None
+            }
+        }
     }
 }
-}
-
-
-
-
 
 // now implement the block with the reference of genesis block
 impl Block {
@@ -185,7 +178,6 @@ impl Block {
 
         // now store the result after the mine_block
         let (nonce, hash) = Block::mine_block(id, now_timestamp, &previous_hash, &data);
-        
 
         // finally return the self of block which has the previous block value
         Self {
@@ -240,29 +232,31 @@ fn main() {
 
     new_BC.is_chain_valid(&new_BC.block);
 
-
     // trying to add more block on it
 
-    let new_block = Block::new(3, new_BC.block[1].hash.to_owned(), "Addinf the 2nd block in the block chan".to_string());
+    let new_block = Block::new(
+        3,
+        new_BC.block[1].hash.to_owned(),
+        "Addinf the 2nd block in the block chan".to_string(),
+    );
     new_BC.try_add_block(new_block);
 
     new_BC.is_chain_valid(&new_BC.block);
 
-    let new_block = Block::new(4, new_BC.block[2].hash.to_owned(), "Adding the 3rd block in the block chain".to_string());
+    let new_block = Block::new(
+        4,
+        new_BC.block[2].hash.to_owned(),
+        "Adding the 3rd block in the block chain".to_string(),
+    );
     new_BC.try_add_block(new_block);
 
     // checking thr block is valid or not that was we have created in the above
     new_BC.is_chain_valid(&new_BC.block);
 
-
-
     // using the chain_selector function here
-    new_BC.block = new_BC.chain_selector(&new_BC.block, &new_BC.block)
-    .expect("Failed to select a valid chain");
+    new_BC.block = new_BC
+        .chain_selector(&new_BC.block, &new_BC.block)
+        .expect("Failed to select a valid chain");
 
-  // i have only single chain in this program. so that i will used it twicly
-    
-
-
-
+    // i have only single chain in this program. so that i will used it twicly
 }
