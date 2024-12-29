@@ -1,4 +1,4 @@
-workspace = { members = ["src/macros", "src/web_scrapping_project","real_life_problem_with_dsa","concurrency","understanding_size_in_rust", "web_programming", "file_handling", "miscellaneous_topics", "extra_practice", "blockchain", "testing"] }
+workspace = { members = ["src/macros", "src/web_scrapping_project","real_life_problem_with_dsa","concurrency","understanding_size_in_rust", "web_programming", "file_handling", "miscellaneous_topics", "extra_practice", "blockchain", "testing", "memory_leakage"] }
 [package]
 name = "practicse"
 version = "0.1.0"
