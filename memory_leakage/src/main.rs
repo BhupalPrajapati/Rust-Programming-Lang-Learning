@@ -1,5 +1,7 @@
 // in this code we are work with the memory leakage and work to avoid in the future
 
+pub mod weak;
+
 use std::cell::RefCell;
 use std::rc::{Rc,Weak};
 

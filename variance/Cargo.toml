@@ -1,0 +1,17 @@
+[package]
+name = "variance"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "lifetimebounds"
+path = "src/bin/lifetimebounds.rs"
+
+[[bin]]
+name = "impliedbounds"
+path = "src/bin/impliedbounds.rs"
+
+
+
+
+[dependencies]

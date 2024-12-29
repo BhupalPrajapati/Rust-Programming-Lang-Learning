@@ -1,4 +1,18 @@
-workspace = { members = ["src/macros", "src/web_scrapping_project","real_life_problem_with_dsa","concurrency","understanding_size_in_rust", "web_programming", "file_handling", "miscellaneous_topics", "extra_practice", "blockchain", "testing", "memory_leakage"] }
+workspace = { members = [
+    "src/macros",
+    "src/web_scrapping_project",
+    "real_life_problem_with_dsa",
+    "concurrency",
+    "understanding_size_in_rust",
+    "web_programming",
+    "file_handling",
+    "miscellaneous_topics",
+    "extra_practice",
+    "blockchain",
+    "testing",
+    "memory_leakage",
+    "variance",
+] }
 [package]
 name = "practicse"
 version = "0.1.0"
@@ -9,4 +23,3 @@ edition = "2021"
 [dependencies]
 array_tool = "1.0.3"
 rand = "0.8.5"
-
