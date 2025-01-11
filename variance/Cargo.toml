@@ -11,6 +11,19 @@ path = "src/bin/lifetimebounds.rs"
 name = "impliedbounds"
 path = "src/bin/impliedbounds.rs"
 
+[[bin]]
+name = "subtypingandvariance"
+path = "src/bin/subtypingandvariance.rs"
+
+[[bin]]
+name = "contravariance"
+path = "src/bin/contravariance.rs"
+
+[[bin]]
+name = "Invariance"
+path = "src/bin/Invariance.rs"
+
+
 
 
 
