@@ -11,7 +11,7 @@ workspace = { members = [
     "blockchain",
     "testing",
     "memory_leakage",
-    "variance",
+    "variance", "orphan_rule",
 ] }
 [package]
 name = "practicse"
